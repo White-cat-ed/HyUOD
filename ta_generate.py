@@ -31,7 +31,6 @@ def get_atmo(img, percent = 0.001):
 
 def get_trans(img, atom, w = 0.95):
     x = img / atom
-    # x = np.where(atom != 0, img / atom, 10) #防止出现atom=0
     t = 1 - w * dark_channel(x)
     return t
 
@@ -62,21 +61,6 @@ def guided_filter(p, i, r, e):
     return q
 
 def calculate_eta_ratios(t_b, a, lambda_r=700, lambda_g=550, lambda_b=450):
-    """
-    计算 eta_r/eta_b 和 eta_g/eta_b 的比值
-    
-    参数:
-        lambda_r (float): 红光的波长
-        lambda_g (float): 绿光的波长
-        lambda_b (float): 蓝光的波长
-        A_r (float): 红光的系数
-        A_g (float): 绿光的系数
-        A_b (float): 蓝光的系数
-    
-    返回:
-        tuple: (eta_r/eta_b, eta_g/eta_b)
-    """
-    # 计算分子和分母
     numerator_r = (-0.00113 * lambda_r + 1.62517) * a[0]#A_b
     denominator_r = (-0.00113 * lambda_b + 1.62517) * a[2]#A_r
     eta_r_over_eta_b = numerator_r / denominator_r
@@ -169,7 +153,7 @@ def dehaze_V2(originPath, t_save_path, a_save_path):
         futures = [executor.submit(dehaze_image, image_path, t_save_path, a_save_path) for image_path in image_paths]
         
         for future in tqdm(as_completed(futures), total=len(futures)):
-            future.result()  # 等待任务完成
+            future.result()
 
 
 if __name__ == "__main__":
