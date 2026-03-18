@@ -3,7 +3,7 @@ Physics-Coupled Frequency Dynamic Adaptation Network for Domain Generalized Unde
 This repository contains the official PyTorch implementation for our paper accepted by **ACM Multimedia (ACM MM) 2025**:
  - [Physics-Coupled Frequency Dynamic Adaptation Network for Domain Generalized Underwater Object Detection](https://dl.acm.org/doi/10.1145/3746027.3755829)
 
-# Installation
+# 📂 Installation
 
  - Clone this repository and enter it:
    ```Shell
@@ -25,7 +25,7 @@ This repository contains the official PyTorch implementation for our paper accep
    pip install -r requirements.txt
    ```
 
-# Data Preparation
+# 📦 Data Preparation
 
 First, download your target underwater object detection dataset and organize it into the standard YOLO dataset format. The initial directory structure should look like this:
 
@@ -81,13 +81,13 @@ names:
 
 # Usage
 
-## Training
+## 🚀 Training
 To train the model, run the following command using the provided configuration and your dataset yaml:
 ```Shell
 python train.py train_yaml/hyuod.yaml /path/to/your/data_yaml.yaml
 ```
 
-## Evaluation
+## 🧪 Evaluation
 
 We provide pre-trained weights for several underwater datasets (including **DUO**, **RUOD**, **SUODAC2020**, and **URPC2020**), which are located in the `weights/` directory.
 
@@ -97,7 +97,7 @@ To evaluate a trained model, run the following command with your saved weights:
 python eval.py weights/DUO.pt /path/to/your/data_yaml.yaml
 ```
 
-# Citation
+# 📜 Citation
 
 If you use HyUOD or this code base in your work, please cite our paper:
 
