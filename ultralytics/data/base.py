@@ -215,8 +215,8 @@ class BaseDataset(Dataset):
             FileNotFoundError: If the image file is not found.
         """
         im, f, fn = self.ims[i], self.im_files[i], self.npy_files[i]
-        it = f.replace("images", 'image')  # 将可见光图像的images替换为image，即对应的t
-        ia = f.replace("images", 'a')  # 将可见光图像的images替换为image，即对应的t
+        it = f.replace("images", 't')
+        ia = f.replace("images", 'a')
         if im is None:  # not cached in RAM
             if fn.exists():  # load npy
                 try:
@@ -227,9 +227,9 @@ class BaseDataset(Dataset):
                     im = cv2.imread(f)  # BGR
             else:  # read image
                 im = cv2.imread(f)  # BGR
-                # if self.hyp.ch > 3:  # 如果输入通道数大于3
-                im = cv2.merge((cv2.imread(it), im))  # 将可见光图像和红外图像合并
-                im = cv2.merge((cv2.imread(ia), im))  # 将可见光图像和红外图像合并
+                # if self.hyp.ch > 3: 
+                im = cv2.merge((cv2.imread(it), im))
+                im = cv2.merge((cv2.imread(ia), im))
             if im is None:
                 raise FileNotFoundError(f"Image Not Found {f}")
             
