@@ -69,7 +69,7 @@ Finally, create your dataset YAML file. Here is an example using the **DUO datas
 path: /path/to/dataset_root  # dataset root dir
 train: images/train 
 train_t: t/train 
-train_a: A/train 
+train_a: a/train 
 val: images/test 
 nc: 4
 names:
