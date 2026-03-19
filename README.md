@@ -94,7 +94,7 @@ We provide pre-trained weights for several underwater datasets (including **DUO*
 To evaluate a trained model, run the following command with your saved weights:
 ```Shell
 # Example: Evaluating on the DUO dataset using the provided pre-trained weights
-python eval.py weights/DUO.pt /path/to/your/data_yaml.yaml
+python val.py weights/DUO.pt /path/to/your/data_yaml.yaml
 ```
 
 # 📜 Citation
