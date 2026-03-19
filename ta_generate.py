@@ -115,8 +115,8 @@ def calculate_airlight(image, window_size=(25, 25)):
         
 def dehaze_image(image_path, t_save_path, a_save_path,img_save_path=None):
     im = cv2.imread(image_path)
-    ratio = 640/im.shape[1]
-    im = cv2.resize(im,(640,int(im.shape[0]*ratio)))
+    # ratio = 640/im.shape[1]
+    # im = cv2.resize(im,(640,int(im.shape[0]*ratio)))
     img = im.astype('float64') / 255
     img_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY).astype('float64') / 255
     atom = calculate_airlight(img)
